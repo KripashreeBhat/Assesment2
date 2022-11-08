@@ -1,0 +1,30 @@
+.confirm p{
+    display:flex;
+    font-size:0.96rem;
+    margin-top:2rem;
+    
+    justify-content: center;
+   
+}
+.btn{
+    display: flex;
+    /* border: 1px solid black; */
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+   
+    font-size: 0.9;
+}
+button{
+    margin-top:8.8%;
+    width:6rem;
+    height:2.2rem;
+    border:none;
+    cursor: pointer;
+    border-radius:2px;
+    background-color: transparent;
+}
+button:hover{
+    color: #fff;
+    background-color: #F76B1C;
+}

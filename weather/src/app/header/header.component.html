@@ -1,0 +1,37 @@
+<div class="navbar">
+<div class="header">
+    <div id="logo" class="weatherlogo">
+        <img src="/assets/weatherlogo.png">
+        </div>
+    <div class="searchbar">
+    <!-- <mat-form-field> -->
+    <input   class="search" type="tel" placeholder="Search City">
+    <!-- </mat-form-field> -->
+    <mat-icon>search</mat-icon>
+    </div>
+</div>
+
+<div class="tab-section">
+<div class="tabs">
+    <ul>
+        <li><a routerLink="/home">HOME</a></li>
+        <li><a routerLink="/fav">FAVOURITE</a></li>
+        <li><a routerLink="/recent">RECENT SEARCH</a></li>
+    </ul>
+
+    <!-- <mat-tab-group>
+        <mat-tab class="color" label="HOME">  </mat-tab>
+        <mat-tab class="color"label="FAVOURITE">  </mat-tab>
+        <mat-tab class="color" label="RECENT SEARCH">  </mat-tab>
+      </mat-tab-group> -->
+</div>
+
+<div class="date-time">
+    
+    <p>{{date|date:'E'}},</p>
+    <p class="date">{{date|date:'mediumDate'}}</p>
+    <p class="time">{{date|date:'shortTime'}}</p>
+</div>
+</div>
+<hr class="line">
+</div>

@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Roboto:wght@300&display=swap');
+.navbar{
+    width:70%;
+    margin:auto;
+}
+.header{
+    display:flex;
+    height:15vh;
+    justify-content: space-between;
+}
+.weatherlogo{
+    display:flex;
+    align-items: center;
+    /* margin-left:8%; */
+    
+}
+
+.searchbar{
+    display: flex;
+    align-items: center;
+    /* justify-content: end; */
+    border:1px solid #ffffff2f;
+    /* margin-right:8%; */
+    margin-top: 3%;
+    height: 35%;
+    width:35%;
+    /* opacity: 0.3; */
+    border-radius: 3px;
+   background-color: rgba(255,255,255,0.116);
+}
+
+.mat-icon {
+    color:#fff;
+    margin-right:6%;
+    /* z-index:-2; */
+}   
+.searchbar input{
+    z-index: 10;
+    width:100%;
+    border: none;
+    background-color: transparent;
+ 
+}
+input::placeholder{
+    color:#fff;
+    font-size: 1.0rem;
+    padding-left:1rem;
+    opacity: 0.3;
+}
+input:focus{
+    outline:none;
+    font-size: 1.0rem;
+    padding-left: 1rem;
+    color: #fff;
+}
+.tab-section{
+    display: flex;
+    justify-content: space-between;
+}
+.tabs{
+    display: flex;
+    margin-left:-3.2%;
+    
+
+}
+
+.tabs ul{
+    display:flex;
+    
+}
+.tabs ul li{
+    list-style: none;
+    
+    font-size:13px;
+    
+}
+.tabs ul li a:hover{
+   color:#FFD639 
+}
+.tabs a{
+    text-decoration: none;
+    color:#fff;
+    font-family: roboto;
+    padding:0 10px;
+}
+
+.tabs a:hover{
+    
+    border-bottom:#FFD639 2px solid;
+}
+.date-time{
+    display:flex;
+    /* margin-right: 8%; */
+    margin-top: 0.5%;
+    /* margin-bottom: 1%; */
+    color: #fff;
+}
+.date{
+    margin-left:5px;
+    
+}
+.time{
+    margin-left:12px;
+}
+.line{
+ margin-top:-1.2%;
+ border: 1px solid #fff;
+ opacity:0.3;
+}

@@ -1,0 +1,49 @@
+
+<div class="container">
+    <div class="fav-empty" *ngIf ="fav; else elseBlock">
+ <div class="no-fav">
+    <img src="/assets/emptyfav.png" alt="empty fav">
+</div>
+    <div class="not-added">
+    <h3>No Favourites added</h3>
+</div>
+</div>
+
+<ng-template #elseBlock>
+        <div class="top-bar">
+        
+        <p>6 City added as favourite</p>
+   
+        <a (click)="opendialog()">Remove All</a>
+    
+</div>
+    <div class="table">
+    <table>
+        <tr>
+            <td>
+                <div class="row-1">
+                    <div class="place">
+                        <p>Udupi,Karnataka</p>
+                    </div>
+                    <div class="fore-cast">
+                        <div class="forecast-img">
+                        <img src="/assets/rowsun.png" alt="">
+                    </div>
+                    <div class="description">
+                        <h2>31<span>&#176;C</span></h2>
+                    </div>
+                    <div class="full-des">
+                       <p>Mostly Sunny</p>
+                    </div>   
+                </div>
+                     <div >
+                        <mat-icon class="fav-icon">favorite_border</mat-icon>
+                     </div>
+                        
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+    </ng-template>
+</div>
