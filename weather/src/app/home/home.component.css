@@ -12,6 +12,12 @@
     font-weight: 500;
     margin-top: 4.7%;
 }
+.flex-fav{
+    display: flex;
+}
+.favicon{
+    cursor:pointer
+}
 .addfav{
     font-size: 0.82rem;
 }
@@ -70,4 +76,56 @@ button:hover{
     font-family:Roboto;
     font-size: 1.4rem;
 
+}
+.added{
+ color:#FAD05B;
+}
+.addedfavicon{
+    color: #FAD05B;
+}
+
+/* media query */
+@media(max-width:500px){
+    .current-place{
+        font-family: roboto;
+        font-size: 1.3rem;
+        font-weight: 500;
+        margin-top: 1.7%;
+        text-align: center;
+    }
+    .mat-icon{
+        /* text-align: center; */
+        text-align: center;
+        /* margin-left:4.5rem; */
+        
+    }
+    .add{
+        /* margin-left:1.8rem;
+        margin-top:-1.7rem; */
+        font-size: 0.82rem;
+        text-align: center;
+    }
+    .forecast{
+        margin-top: 12.66%;
+
+    }
+    .display-deg h2{
+        font-size: 3.2rem;
+        margin-top: 1rem;
+    }
+    .forecast{
+        margin-top: 30%;
+    }
+    .cel-fer{
+        display: flex;
+        justify-content: center;
+        margin-top: 1.6rem;
+    }
+    .forecast-dis > p {
+        margin-top:1rem;
+    }
+    .flex-fav{
+        display: flex;
+        justify-content: center;
+    }
 }

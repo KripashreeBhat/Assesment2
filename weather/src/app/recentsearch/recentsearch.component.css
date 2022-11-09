@@ -79,3 +79,18 @@ margin-left: 2rem;
 .fav-icon{
     margin-right:2rem;
 }
+
+@media(max-width:500px){
+    .fav-empty{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin-top:15rem;
+    }
+    .not-added{
+        margin-top:1rem;
+    }
+    
+}

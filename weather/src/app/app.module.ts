@@ -12,6 +12,7 @@ import { FavComponent } from './fav/fav.component';
 import { FooterComponent } from './footer/footer.component';
 import { DialogremoveComponent } from './dialogremove/dialogremove.component';
 import { RecentsearchComponent } from './recentsearch/recentsearch.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RecentsearchComponent } from './recentsearch/recentsearch.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

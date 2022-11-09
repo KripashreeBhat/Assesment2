@@ -4,19 +4,29 @@
         <img src="/assets/weatherlogo.png">
         </div>
     <div class="searchbar">
-    <!-- <mat-form-field> -->
-    <input   class="search" type="tel" placeholder="Search City">
-    <!-- </mat-form-field> -->
-    <mat-icon>search</mat-icon>
-    </div>
+   
+    <form [formGroup]="searchForm"  (click)="closesearch()" >
+   <div class="input" > 
+    <input formControlName="name" class="search" type="tel" placeholder="Search City">
+   </div>
+</form>
+
+<mat-icon  (click)="search()">search</mat-icon>
+</div>
+    
 </div>
 
-<div class="tab-section">
-<div class="tabs">
+<div class="hide-tab" (click)="openTab()" >
+<span></span>
+<span></span>
+<span></span>
+</div>
+<div class="tab-section" >
+<div class="tabs" [class.hidetabmenu]="hidetab" (click)="closeTab()">
     <ul>
-        <li><a routerLink="/home">HOME</a></li>
-        <li><a routerLink="/fav">FAVOURITE</a></li>
-        <li><a routerLink="/recent">RECENT SEARCH</a></li>
+        <li><a routerLink="/home"><span class="cap">H</span>OME</a></li>
+        <li><a routerLink="/fav"><span class="cap">F</span>AVOURITE</a></li>
+        <li><a routerLink="/recent"><span class="cap">R</span>ECENT SEARCH</a></li>
     </ul>
 
     <!-- <mat-tab-group>

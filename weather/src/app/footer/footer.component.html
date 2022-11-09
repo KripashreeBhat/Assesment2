@@ -1,36 +1,55 @@
-<div class="container">
 <hr class="line">
+<div class="container">
 <div class="flex-items">
     <div class="box ">
+        <div class="box-1">
         <img src="/assets/humidity.png" alt="">
-        <p class="heading box-1">Min-max</p>
-        <h3>75&#176;-90&#176;</h3>
-    
+    </div>
+    <div class="info">
+        <p class="heading ">MinMax</p>
+        <h3>{{((this.temp['main'].temp_max)-273.15).toFixed(0)}}&#176;-{{((this.temp['main'].temp_min)-273.15).toFixed(0)}}&#176;</h3>
+    </div>
     </div>
 
 
     <div class="box">
+        <div class="box-1">
         <img src="/assets/cloudy.png" alt="">
+    </div>
+    <div class="info">
         <p class="heading box-2">Precipitation</p>
         <h3>75&#176;-90&#176;</h3>
     </div>
+    </div>
 
     <div class="box">
+        <div class="box-1">
         <img src="/assets/droplet.png" alt="">
+    </div>
+    <div class="info">
         <p class="heading  box-3">Humidity</p>
-        <h3>75&#176;-90&#176;</h3>
+        <h3>{{this.temp['main'].humidity}}</h3>
+    </div>
     </div>
 
     <div class="box ">
+        <div class="box-1">
         <img src="/assets/wind.png" alt="">
-        <p class="heading box-4">Wind</p>
-        <h3>75&#176;-90&#176;</h3>
     </div>
-
+    <div class="info">
+        <p class="heading box-4">Wind</p>
+        <h3>{{this.temp['wind'].deg}}</h3>
+    </div>
+    </div>
+    
     <div class="box">
+        <div class="box-info">
         <img src="/assets/visibility.png" alt="">
+    </div>
+    <div class="info">
         <p class="heading  box-5">visibility</p>
         <h3>75&#176;-90&#176;</h3>
+    </div>
     </div>
 </div>
 </div>

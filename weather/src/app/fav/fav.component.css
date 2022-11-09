@@ -2,7 +2,7 @@
     /* border: 1px solid #fff; */
     width:68%;
     margin:auto;
-    height: 80vh;
+    /* height: 80vh; */
 }
 .fav-empty{
     display: flex;
@@ -24,7 +24,12 @@
     color:#fff;
 
 }
+.row{
+    display:flex;
+    /* justify-content: space-between;
+    position:relative; */
 
+}
 table{
     width:100%;
     height:50%;
@@ -78,4 +83,85 @@ margin-left: 2rem;
 }
 .fav-icon{
     margin-right:2rem;
+}
+@media(max-width:500px){
+    .container{
+        /* border: 1px solid #fff; */
+        width:92%;
+        margin:auto;
+        /* height: 80vh; */
+    }
+
+    .row-1{
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        align-items: flex-start;
+        height: 80px;
+    }
+    .row{
+        /* position:absolute; */
+    }
+
+    .fore-cast{
+        display:flex;
+        justify-content: space-between;
+
+        /* margin-left: -10rem; */
+        /* margin-top:1rem */
+        }
+        .place{
+            /* display: flex; */
+            /* justify-content:flex-start;
+            text-align:left; */
+            font-family: Roboto;
+            font-size:1rem;
+            color:#FFE539;
+            /* margin-left: -19rem; */
+        }
+        .description h2{
+            display:flex;
+            /* align-items: center;
+            text-align: center; */
+            font-size: 1.4rem;
+        }
+        .full-des{
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+        .description span{
+            font-size:0.85rem;
+            
+        }
+        .forecast-img{
+            /* height:2%; */
+            /* height:13px; 
+            width:13px; */
+        }
+        .fav-icon{
+            display: flex;
+            flex-direction: row;
+            position:absolute;
+            
+            /* justify-content:end;
+            align-items: flex-end; */
+        }
+        table td:hover{
+            border:1px solid rgb(25, 138, 213)
+        }
+
+        
+            .fav-empty{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                margin-top:15rem;
+            }
+            .not-added{
+                margin-top:1rem;
+            }
+     
+        
 }

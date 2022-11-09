@@ -3,30 +3,40 @@
  <div class="container">
     <div class="place-fav">
     <div class="place">
-        <h3 class="current-place">Udupi, Karnataka</h3>
+        <h3 class="current-place">{{this.temp['name']}}, Karnataka</h3>
     </div>
-    <div class="addfav">
-        <mat-icon>favorite_border</mat-icon>
+    <div class="flex-fav">
+    <div class="addfav" *ngIf="clickfav;else elseBlock" (click)="clickfavr()">
+        <mat-icon class="favicon">favorite_border</mat-icon>
         <p class="add">Add to favourite</p>
     </div>
+    <ng-template #elseBlock>
+    <div class="addfav" (click)="clickfavr()">
+        <mat-icon class="favicon addedfavicon">favorite</mat-icon>
+        <p class="add added">Added to favourite</p>
+    </div>
+</ng-template>
+</div>
 </div>
 
 <div class="forecast">
 <div class="forecast-logo">
     <img src="/assets/sun.png" alt="forecast-logo">
+    <!-- {{this.temp['weather'][0].icon}} -->
 </div>
 <div class="cel-fer">
     <div class="display-deg">
-        <h2>87</h2>
+        <h2>{{this.conv}}</h2>
     </div>
     <div class="btn">
-    <button class="cel">&#176;C</button>
-    <button class="fer">&#176;F</button>
+    <button class="cel" (click)="celconv()" >&#176;C</button>
+    <button class="fer" (click)="farconv()">&#176;F</button>
+    
 </div>
 
 </div>
 <div class="forecast-dis">
-    <p>Mostly Sunny</p>
+    <p>{{this.temp['weather'][0].main}}</p>
 </div>
 
 </div>
