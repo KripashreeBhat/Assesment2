@@ -10,16 +10,19 @@ export class FavComponent implements OnInit {
   fav = false;
   likedlist:any;
   replacenav:boolean=false;
+  found = false;
+  table =true;
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.likedlist = localStorage.getItem('favs');
     this.likedlist = JSON.parse(this.likedlist);
+   
   }
 opendialog(){
   this.dialog.open(DialogremoveComponent,{
     panelClass: 'my-class'
-
   });
+
 }
 }

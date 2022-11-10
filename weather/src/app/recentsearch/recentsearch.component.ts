@@ -10,6 +10,7 @@ export class RecentsearchComponent implements OnInit {
   table =true;
   replacenav:boolean=false;
   recent:any;
+  unfav=true;
   constructor() { }
 
   ngOnInit(): void {
@@ -31,5 +32,6 @@ clearAll(){
   localStorage.removeItem('temp');
   this.found=true;
   this.table=false;
+  window.location.reload();
 }
 }

@@ -18,14 +18,19 @@ export class HomeComponent implements OnInit {
   weatherIcon:any;
   dispbtn:boolean=false;
   favs:any;
+  unfavs:any;
+  filteredList!: any[];
+  clickfav = true;
+   unclick = false;
   constructor(private http:HttpClient, private route: Router) {
     this.loadData();
    }
-   clickfav = true;
+   
    
    ngOnInit(): void {
     localStorage.getItem('name')
     this.dispbtn = true;
+    // this.route.navigate(['/home']).then(()=>window.location.reload())
   }
   loadData(){
     this.name = localStorage.getItem('name');
@@ -39,12 +44,13 @@ export class HomeComponent implements OnInit {
       // console.log(this.weatherTemp);
       // this.route.navigate(['/home']).then
       // window.location.reload();
-      
+      // window.location.reload()
   })
   // ,err=>alert('OOPs!! Something went wrong, Please try again'
 }
 click(){
   this.clickfav = false;
+  this.unclick = true;
   let fav = this.name;
   this.http.get(`${API_URL}/weather?q=${fav}&appid=${API_KEY}`).subscribe(data=>{
    console.log(data);
@@ -52,15 +58,20 @@ click(){
    this.favs = JSON.parse(this.favs) || [];
    this.favs.push({data});
    localStorage.setItem('favs',JSON.stringify(this.favs));
- 
+  
  
   })
 }
 clickfavr(){
  this.clickfav = true;
+ this.unclick = false;
+ this.unfavs = localStorage.getItem('favs');
+ this.unfavs = JSON.parse(this.unfavs) || [];
 
-
+ 
 }
+
+
 celconv(){
   this.conv = (this.temp['main'].temp-273.15).toFixed(2);
 }

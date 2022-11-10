@@ -10,7 +10,7 @@
 
 
 <div class="container">
-    <div class="fav-empty" *ngIf ="fav; else elseBlock">
+    <div class="fav-empty" *ngIf ="found">
  <div class="no-fav">
     <img src="/assets/emptyfav.png" alt="empty fav">
 </div>
@@ -19,8 +19,8 @@
 </div>
 </div>
 
-<ng-template #elseBlock>
-        <div class="top-bar">
+<!-- <ng-template #elseBlock> -->
+        <div class="top-bar" *ngIf="table">
         
         <p>6 City added as favourite</p>
    
@@ -57,5 +57,5 @@
         </tr>
     </table>
 </div>
-    </ng-template>
+    <!-- </ng-template> -->
 </div>

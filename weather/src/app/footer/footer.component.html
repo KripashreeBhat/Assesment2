@@ -17,8 +17,8 @@
         <img src="/assets/cloudy.png" alt="">
     </div>
     <div class="info">
-        <p class="heading box-2">Precipitation</p>
-        <h3>75&#176;-90&#176;</h3>
+        <p class="heading box-2">Pressure</p>
+        <h3>{{this.temp['main'].pressure}}</h3>
     </div>
     </div>
 
@@ -28,7 +28,7 @@
     </div>
     <div class="info">
         <p class="heading  box-3">Humidity</p>
-        <h3>{{this.temp['main'].humidity}}</h3>
+        <h3>{{this.temp['main'].humidity}} &percnt;</h3>
     </div>
     </div>
 
@@ -48,7 +48,7 @@
     </div>
     <div class="info">
         <p class="heading  box-5">visibility</p>
-        <h3>75&#176;-90&#176;</h3>
+        <h3>{{this.temp['visibility']}}</h3>
     </div>
     </div>
 </div>
