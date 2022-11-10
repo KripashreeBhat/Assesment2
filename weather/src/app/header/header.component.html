@@ -1,19 +1,20 @@
-<div class="navbar">
+<div>
+<div class="navbar" [class.nav]="normheader">
 <div class="header">
     <div id="logo" class="weatherlogo">
         <img src="/assets/weatherlogo.png">
         </div>
     <div class="searchbar">
    
-    <form [formGroup]="searchForm"  (click)="closesearch()" >
-   <div class="input" > 
-    <input formControlName="name" class="search" type="tel" placeholder="Search City">
-   </div>
+    <form [formGroup]="searchForm">
+   <div class="search" [class.hidesearch]="hidesearchtab"  (click)="closesearch()" > 
+    <input formControlName="name"  type="tel" placeholder="Search City">
+</div>
 </form>
-
+<div (click)="opensearch()" ></div>
 <mat-icon  (click)="search()">search</mat-icon>
 </div>
-    
+
 </div>
 
 <div class="hide-tab" (click)="openTab()" >
@@ -29,11 +30,6 @@
         <li><a routerLink="/recent"><span class="cap">R</span>ECENT SEARCH</a></li>
     </ul>
 
-    <!-- <mat-tab-group>
-        <mat-tab class="color" label="HOME">  </mat-tab>
-        <mat-tab class="color"label="FAVOURITE">  </mat-tab>
-        <mat-tab class="color" label="RECENT SEARCH">  </mat-tab>
-      </mat-tab-group> -->
 </div>
 
 <div class="date-time">
@@ -44,4 +40,10 @@
 </div>
 </div>
 <hr class="line">
+</div>
+
+<!-- <div class="replacednav" [class.replace]="replacenav">
+    <mat-icon routerLink="/home">arrow_back</mat-icon>
+    <h3>Favourite</h3>
+</div> -->
 </div>

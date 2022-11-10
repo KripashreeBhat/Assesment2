@@ -5,7 +5,10 @@
 export const environment = {
   production: false,
   API_KEY:'2b306fa074da4628d1581e56efccd374',
-  API_URL:'https://api.openweathermap.org/data/2.5/'
+  API_URL:'https://api.openweathermap.org/data/2.5/',
+  // LOC_KEY:'7cbe29ba6b88724a99d38797e95f9873',
+  // LOC_URL:'https://api.weatherstack.com/...'
+  
 
 };
 

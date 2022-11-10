@@ -13,13 +13,16 @@ export class HomeComponent implements OnInit {
   temp:any;
   conv :any;
   name:any;
+  weatherIcon:any;
+  dispbtn:boolean=false;
   constructor(private http:HttpClient) {
     this.loadData();
    }
    clickfav = true;
    
    ngOnInit(): void {
-    
+    localStorage.getItem('name')
+    this.dispbtn = true;
   }
   loadData(){
     this.name = localStorage.getItem('name');
@@ -27,12 +30,14 @@ export class HomeComponent implements OnInit {
     this.http.get(`${API_URL}/weather?q=${this.name}&appid=${API_KEY}`).subscribe(data=>{
       console.log(data);
       this.temp = data;
-      this.conv = this.temp['main'].temp;
+      this.conv = this.temp['main'].temp; 
+      this.weatherIcon = `http://openweathermap.org/img/wn/${this.temp['weather'][0].icon}@2x.png`
       // this.weatherTemp = (this.temp['main'].temp)
       // console.log(this.weatherTemp);
       
       
   })
+  // ,err=>alert('OOPs!! Something went wrong, Please try again'
 }
 clickfavr(){
  this.clickfav =! this.clickfav;

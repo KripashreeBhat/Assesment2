@@ -105,10 +105,14 @@ input:focus{
     margin-left:12px;
 }
 .line{
- margin-top:-1.2%;
+ margin-top:-1.5%;
+ /* border-bottom: 1px solid #fff;; */
  border: 1px solid #fff;
  opacity:0.3;
 }
+.replacednav{
+    display: flex;
+} 
 
 @media(max-width:500px){
     .navbar{
@@ -171,20 +175,37 @@ input:focus{
         
     }
     .searchbar{
-        display: flex;
-        align-items: center;
-        justify-content: end;
         /* border:1px solid #ffffff2f; */
         margin-right:4%;
         margin-top: 1%;
         border: none;
         background: transparent;
     }
-    .searchbar input{
-        /* display: none; */
+    .search{
+        position: absolute;
+        margin-top: 3rem;
+        margin-right: -1rem;
         color:#000;
-        
+        height:90vh;
+        width:100vw;
+        right:-100vw;
+        transition:0.4s ease-in-out;
+        background-color: #fff; 
+    }
+    .searchbar input{
+        color:#000;
+        border-bottom: #707070 1px solid;
+        height:10%;
+    }
+    
      
+    input::placeholder{
+        color:#000000;
+        font-size: 1.0rem;
+        /* padding-left:3rem; */
+        /* margin-left:3rem; */
+        padding-top:2rem;
+        opacity: 0.2;
     }
     .date-time{
         display:flex;
@@ -215,7 +236,7 @@ input:focus{
         display: inline-block;
         position: relative;
         left:2.3rem;
-        top:-3.3rem;
+        top:-2.6rem;
         cursor: pointer;
 
     }
@@ -241,43 +262,23 @@ input:focus{
     .cap{
         text-transform: uppercase;
     }
-    .input{
-        display: none;
-    }
-     
-    .input{
-        /* position:absolute;
-        display:flex ;
-        border:1px solid #fff;
-        width:100vw;
-        
-        height:90vh;
-        background: #fff;
-        
-        
-        right:-100vw;
-            margin-top: 2.5rem;
-            transition: 0.4s ease-in-out;
-         */
-    }
+    
+
     input:focus{
         outline:none;
         font-size: 1.0rem;
-        padding-left:9rem;
+        padding-left:1rem;
         color: #000;
     }
     
-    
-    input::placeholder{
-        color:#000000;
-        font-size: 1.0rem;
-        padding-left:1rem;
-        opacity: 0.2;
-    }
+   
     .mat-icon {
         color:#fff;
         margin-top:3rem;
         /* margin-left:50%; */
         /* z-index:-2; */
-    }   
+    }  
+    .replacednav{
+        /* display: flex; */
+    } 
 }

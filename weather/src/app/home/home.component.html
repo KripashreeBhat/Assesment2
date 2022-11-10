@@ -21,14 +21,15 @@
 
 <div class="forecast">
 <div class="forecast-logo">
-    <img src="/assets/sun.png" alt="forecast-logo">
+    <!-- <img src="/assets/sun.png" alt="forecast-logo"> -->
+    <img [src]=weatherIcon alt="">
     <!-- {{this.temp['weather'][0].icon}} -->
 </div>
 <div class="cel-fer">
     <div class="display-deg">
         <h2>{{this.conv}}</h2>
     </div>
-    <div class="btn">
+    <div class="btn" *ngIf="dispbtn" >
     <button class="cel" (click)="celconv()" >&#176;C</button>
     <button class="fer" (click)="farconv()">&#176;F</button>
     

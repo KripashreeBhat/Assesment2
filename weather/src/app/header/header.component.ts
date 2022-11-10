@@ -9,11 +9,23 @@ import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 export class HeaderComponent implements OnInit {
   public date= new Date();
   today:number =Date.now();
-  
+  normheader:boolean=false;
+  replacenav:boolean=false;
+  mobilemedia:any = window.matchMedia('(max-width:500px)')
   searchForm!:FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) { 
+    if(this.mobilemedia.matches){
+      this.replacenav = true;
+      this.normheader = false;
+
+    }
+    else{
+      this.normheader = true;
+      this.replacenav = true;
+    }
+  }
   hidetab:boolean= false;
-  hidesearchtab:boolean= false;
+  hidesearchtab:boolean= true;
   ngOnInit(): void {
     this.searchForm =this.fb.group({
       'name':['']
@@ -31,10 +43,11 @@ closesearch(){
   this.hidesearchtab= false;
 }
 opensearch(){
-  this.hidesearchtab=true;
+
+  // this.hidesearchtab=true;
 }
 search(){
-  this.hidesearchtab=false;
+  this.hidesearchtab = false;
   localStorage.setItem('name',JSON.stringify(this.searchForm.get('name')?.value));
   window.location.reload();
 
