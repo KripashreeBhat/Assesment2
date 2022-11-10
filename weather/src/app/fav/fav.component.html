@@ -1,3 +1,13 @@
+<div class="navbar">
+<app-header></app-header>
+</div>
+<div class="replacednav" [class.replace]="replacenav">
+   
+    <mat-icon  class="arrow" routerLink="/home">arrow_back</mat-icon>
+    <h3 class="favtab">Favourite</h3>
+    <mat-icon class="searchicon">search</mat-icon>
+</div>
+
 
 <div class="container">
     <div class="fav-empty" *ngIf ="fav; else elseBlock">
@@ -17,28 +27,28 @@
         <a (click)="opendialog()">Remove All</a>
     
 </div>
-    <div class="table">
+    <div class="table scroll">
     <table>
-        <tr>
+        <tr *ngFor="let fav of likedlist">
             <td>
                 <div class="row-1">
                     <!-- <div class="row"> -->
                     <div class="place">
-                        <p>Udupi,Karnataka</p>
+                        <p>{{fav.data.name}}</p>
                     </div>
                     <div class="fore-cast">
                         <div class="forecast-img">
-                        <img src="/assets/rowsun.png" alt="">
+                        <img src="http://openweathermap.org/img/wn/{{fav.data['weather'][0].icon}}.png" alt="">
                     </div>
                     <div class="description">
-                        <h2>31<span>&#176;C</span></h2>
+                        <h2>{{((fav.data['main'].temp)-273.15).toFixed(0)}}<span>&#176;C</span></h2>
                     </div>
                     <div class="full-des">
-                       <p>Mostly Sunny</p>
+                       <p>{{fav.data.weather[0].main}}</p>
                     </div>   
                 </div>
                      <div class="fav-icon">
-                        <mat-icon >favorite_border</mat-icon>
+                        <mat-icon >favorite</mat-icon>
                      </div>
                     <!-- </div> -->
                 </div>

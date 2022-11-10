@@ -14,3 +14,25 @@ body{
     width: 458px;
   
 }
+@media(max-width:500px){
+    .my-class .mat-dialog-container{
+        height: 150px;
+        width: 350px;
+       font-size:1rem;
+        color: rgba(0,0,0,0.54);
+
+      
+    }
+    .my-class .mat-dialog-container button{
+        
+        color: #673AB7;
+        font-size: 0.9rem;
+        padding-bottom:1 rem;
+        font-weight:800;
+      
+    }
+    ::-webkit-scrollbar {
+        display: none;
+       
+     }
+}

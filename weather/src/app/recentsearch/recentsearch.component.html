@@ -1,6 +1,17 @@
+<div class="navbar">
+<app-header></app-header>
+</div>
+
+<div class="replacednav" [class.replace]="replacenav">
+   
+    <mat-icon  class="arrow" routerLink="/home">arrow_back</mat-icon>
+    <h3 class="favtab">Recent search</h3>
+    <mat-icon class="searchicon">search</mat-icon>
+</div>
 
 <div class="container">
-    <div class="fav-empty" *ngIf ="fav; else elseBlock">
+    <div class="fav-empty" *ngIf ="found">
+        <!-- <div class="fav-empty" *ngIf ="fav; else elseBlock"> -->
  <div class="no-fav">
     <img src="/assets/emptyfav.png" alt="empty fav">
 </div>
@@ -9,35 +20,35 @@
 </div>
 </div>
 
-<ng-template #elseBlock>
-        <div class="top-bar">
+<!-- <ng-template #elseBlock> -->
+        <div class="top-bar" *ngIf="table">
         
         <p>You recently seacrhed for</p>
    
-        <a href="#">Clear All</a>
+        <a (click)="clearAll()">Clear All</a>
     
 </div>
-    <div class="table">
+    <div class="table scroll">
     <table>
-        <tr>
+        <tr  *ngFor="let search of recent">
             <td>
                 <div class="row-1">
                     <div class="place">
-                        <p>Karwar,Karnataka</p>
+                        <p>{{search.data.name}}</p>
                     </div>
                     <div class="fore-cast">
                         <div class="forecast-img">
-                        <img src="/assets/rowsun.png" alt="">
+                        <img src="http://openweathermap.org/img/wn/{{search.data['weather'][0].icon}}.png" alt="">
                     </div>
                     <div class="description">
-                        <h2>31<span>&#176;C</span></h2>
+                        <h2>{{((search.data['main'].temp)-273.15).toFixed(0)}}<span>&#176;C</span></h2>
                     </div>
                     <div class="full-des">
-                       <p>Mostly Sunny</p>
+                       <p>{{search.data.weather[0].main}}</p>
                     </div>   
                 </div>
-                     <div >
-                        <mat-icon class="fav-icon">favorite_border</mat-icon>
+                     <div class="fav-icon">
+                        <mat-icon >favorite_border</mat-icon>
                      </div>
                         
                 </div>
@@ -45,6 +56,6 @@
         </tr>
     </table>
 </div>
-    </ng-template>
+    <!-- </ng-template> -->
 </div>
 

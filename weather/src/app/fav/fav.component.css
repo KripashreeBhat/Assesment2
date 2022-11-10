@@ -1,8 +1,18 @@
+.replacednav {
+    display:none;
+}
 .container{
     /* border: 1px solid #fff; */
     width:68%;
     margin:auto;
     /* height: 80vh; */
+}
+.scroll{
+    height:70%;
+    overflow-y: scroll;
+}
+.scroll::-webkit-scrollbar {
+    display: none;
 }
 .fav-empty{
     display: flex;
@@ -98,6 +108,7 @@ margin-left: 2rem;
         justify-content:flex-start;
         align-items: flex-start;
         height: 80px;
+        position:relative;
     }
     .row{
         /* position:absolute; */
@@ -117,10 +128,14 @@ margin-left: 2rem;
             font-family: Roboto;
             font-size:1rem;
             color:#FFE539;
+            margin-top:2%
             /* margin-left: -19rem; */
         }
         .description h2{
+            /* position: absolute; */
             display:flex;
+            margin-left:-1%;
+            font-family:  Roboto;
             /* align-items: center;
             text-align: center; */
             font-size: 1.15rem;
@@ -137,13 +152,14 @@ margin-left: 2rem;
             /* height:2%; */
             /* height:13px; 
             width:13px; */
+            margin-top:-5%;
         }
         .fav-icon{
             display: flex;
             /* flex-direction: row; */
             position:absolute;
-            margin-left: 70%;
-            margin-top:7%;
+            left: 87%;
+            margin-top:6%;
             justify-content:end;
             align-items: flex-end;
         }
@@ -163,6 +179,52 @@ margin-left: 2rem;
             .not-added{
                 margin-top:1rem;
             }
-     
+            .navbar{
+                display:none;
+            }
+            .replacednav {
+                display:flex;
+            }
+            .replacednav{
+                display: flex;
+                width:100vw;
+                height:7vh;
+                /* position:relative; */
+                justify-content: space-between;
+                background-color: #ffffff;
+                border: #fff 1px solid;
+            } 
+            .arrow{
+                display:flex;
+                color: #292F33;
+                margin-top:3%;
+                font-weight:500;
+                /* position: absolute; */
+                bottom: 3%;
+                align-items: center;
+            }
+            .favtab{
+                display: flex;
+                position: absolute;
+                left:20%;
+                font-weight:500;
+                margin-top:3%;
+                font-size:1.3rem;
+                color: #292F33;
+            }
+            .searchicon{
+                display: flex;
+                justify-content: flex-end;
+                position: absolute;
+                right: 3%;
+                color: #292F33;
+                margin-top: 3%;
+                font-weight:500;
+                
+                /* top:0.1%; */
+                /* align-items:center; */
+                
+            }
+           
         
 }

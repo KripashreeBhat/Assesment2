@@ -1,6 +1,9 @@
 .container{
     width:55%;
-    margin:auto;
+    position:fixed;
+    margin: auto;
+    left:0;
+    right:0;
     /* height:22vh; */
     
 }
@@ -36,7 +39,6 @@
     .container{
 
         width:100%;
-        position:fixed;
         bottom: 0%;
         /* height:10vh; */
         border-top: 1px solid #ffffff2f;
@@ -71,6 +73,33 @@
         display: none;
         /* width:100%;
         margin-top: 9.1rem; */
+    }
+
+}
+
+@media(min-width:501px)and(max-width:600px){
+    .container{
+
+        width:95%;
+        position:fixed;
+        bottom: 0%;
+        /* height:10vh; */
+    }
+    ::-webkit-scrollbar {
+        display: none;
+       
+     }
+    .flex-items{
+        display:flex;
+        position:absolute;
+        width:100%;
+        margin-top: 1rem;
+        /* margin-left: -9rem; */
+        /* white-space: nowrap; */
+        /* overflow-y: hidden; */
+        cursor: pointer;
+        overflow-x: none;
+        -webkit-overflow-scrolling: auto;
     }
 
 }

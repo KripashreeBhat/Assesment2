@@ -6,10 +6,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recentsearch.component.css']
 })
 export class RecentsearchComponent implements OnInit {
-  fav = true;
+  found = false;
+  table =true;
+  replacenav:boolean=false;
+  recent:any;
   constructor() { }
 
   ngOnInit(): void {
-  }
+    this.recent = localStorage.getItem('temp');
+    this.recent = JSON.parse(this.recent);
 
+    if(this.recent === null){
+      this.found = true;
+      this.table = false;
+    }
+
+    else{
+      this.found =false;
+      this.table = true;
+    }
+  }
+ 
+clearAll(){
+  localStorage.removeItem('temp');
+  this.found=true;
+  this.table=false;
+}
 }

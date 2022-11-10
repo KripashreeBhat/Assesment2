@@ -1,5 +1,5 @@
-<div>
-<div class="navbar" [class.nav]="normheader">
+
+<div class="navbar"  [class.nav]="normheader">
 <div class="header">
     <div id="logo" class="weatherlogo">
         <img src="/assets/weatherlogo.png">
@@ -7,17 +7,18 @@
     <div class="searchbar">
    
     <form [formGroup]="searchForm">
-   <div class="search" [class.hidesearch]="hidesearchtab"  (click)="closesearch()" > 
+   <div class="search" (click)="search()" [class.hidesearch]="hidesearchtab"  > 
+    <mat-icon class="arrow" routerLink="/home">arrow_back</mat-icon>
     <input formControlName="name"  type="tel" placeholder="Search City">
 </div>
 </form>
-<div (click)="opensearch()" ></div>
-<mat-icon  (click)="search()">search</mat-icon>
+<mat-icon class="ss" (click)="search()">search</mat-icon>
 </div>
+<mat-icon  class="searchIcon"(click)="opensearch()">search</mat-icon>
 
 </div>
 
-<div class="hide-tab" (click)="openTab()" >
+<div class="hide-tab" *ngIf="hamburger" (click)="openTab()" >
 <span></span>
 <span></span>
 <span></span>
@@ -26,7 +27,7 @@
 <div class="tabs" [class.hidetabmenu]="hidetab" (click)="closeTab()">
     <ul>
         <li><a routerLink="/home"><span class="cap">H</span>OME</a></li>
-        <li><a routerLink="/fav"><span class="cap">F</span>AVOURITE</a></li>
+        <li><a routerLink="/fav" ><span class="cap">F</span>AVOURITE</a></li>
         <li><a routerLink="/recent"><span class="cap">R</span>ECENT SEARCH</a></li>
     </ul>
 
@@ -43,7 +44,9 @@
 </div>
 
 <!-- <div class="replacednav" [class.replace]="replacenav">
-    <mat-icon routerLink="/home">arrow_back</mat-icon>
-    <h3>Favourite</h3>
+   
+    <mat-icon  class="arrow" routerLink="/home">arrow_back</mat-icon>
+    <h3 class="favtab">Favourite</h3>
+    <mat-icon class="searchicon">search</mat-icon>
 </div> -->
-</div>
+

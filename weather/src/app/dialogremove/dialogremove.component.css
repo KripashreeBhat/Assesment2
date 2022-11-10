@@ -12,10 +12,12 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-   
-    font-size: 0.9;
+    font-size: 1rem;
+    
 }
 button{
+    font-weight:800;
+    
     margin-top:8.8%;
     width:6rem;
     height:2.2rem;
@@ -27,4 +29,28 @@ button{
 button:hover{
     color: #fff;
     background-color: #F76B1C;
+}
+
+@media(max-width:500px){
+    .confirm{
+        /* width:20px; */
+    }
+    .confirm p{
+        display:flex;
+        font-size:1rem;
+        margin-top:0;
+        line-height: 24px;
+        justify-content: center;
+       
+    }
+
+    .btn{
+        display: flex;
+        /* border: 1px solid black; */
+        align-items: end;
+        text-align: end;
+        justify-content: end;
+        color: #673AB7;
+        /* font-size: end; */
+    }
 }

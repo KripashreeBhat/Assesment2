@@ -72,7 +72,7 @@ input:focus{
 .tabs ul li{
     list-style: none;
     
-    font-size:13px;
+    font-size:1rem;
     
 }
 .tabs ul li a:hover{
@@ -87,12 +87,15 @@ input:focus{
 
 .tabs a:hover{
     
-    border-bottom:#FFD639 2px solid;
+    border-bottom:
+        
+    #FFD639 2px solid;
 }
 .date-time{
     display:flex;
+    font-size:1rem;
     /* margin-right: 8%; */
-    margin-top: 0.5%;
+    margin-top: 1%;
     /* margin-bottom: 1%; */
     color: #fff;
 }
@@ -105,15 +108,21 @@ input:focus{
     margin-left:12px;
 }
 .line{
- margin-top:-1.5%;
+ margin-top:-16px;
  /* border-bottom: 1px solid #fff;; */
  border: 1px solid #fff;
  opacity:0.3;
 }
 .replacednav{
-    display: flex;
+    display: none;
 } 
 
+.searchIcon{
+    display: none;
+}
+.arrow{
+    display: none;
+}
 @media(max-width:500px){
     .navbar{
         width:100%;
@@ -176,18 +185,24 @@ input:focus{
     }
     .searchbar{
         /* border:1px solid #ffffff2f; */
+        /* display:none; */
         margin-right:4%;
         margin-top: 1%;
         border: none;
         background: transparent;
     }
+    .ss{
+        display:none;
+    }
     .search{
-        position: absolute;
-        margin-top: 3rem;
+        position: fixed;
+        top:0;
+        /* z-index:50; */
+        /* margin-top: 3rem; */
         margin-right: -1rem;
         color:#000;
-        height:90vh;
-        width:100vw;
+        height:100vh;
+        width:100%;
         right:-100vw;
         transition:0.4s ease-in-out;
         background-color: #fff; 
@@ -195,7 +210,7 @@ input:focus{
     .searchbar input{
         color:#000;
         border-bottom: #707070 1px solid;
-        height:10%;
+        /* height:1%; */
     }
     
      
@@ -204,7 +219,10 @@ input:focus{
         font-size: 1.0rem;
         /* padding-left:3rem; */
         /* margin-left:3rem; */
-        padding-top:2rem;
+        /* padding-top:-2rem; */
+        position:fixed;
+       
+        bottom:-10%;
         opacity: 0.2;
     }
     .date-time{
@@ -213,7 +231,8 @@ input:focus{
         justify-content: center;
         text-align: center;
         
-        /* margin-right: 8%; */
+        /* margin-￼
+￼right: 8%; */
         margin-top: 0.5%;
         margin: auto;
         font-size: 13px;
@@ -236,7 +255,7 @@ input:focus{
         display: inline-block;
         position: relative;
         left:2.3rem;
-        top:-2.6rem;
+        top:-3rem;
         cursor: pointer;
 
     }
@@ -256,7 +275,7 @@ input:focus{
     }
     .hidesearch{
         right:0;
-        transition: 0.4s ease-in-out;
+        /* transition: 0.4s ease-out; */
     }
     
     .cap{
@@ -278,7 +297,60 @@ input:focus{
         /* margin-left:50%; */
         /* z-index:-2; */
     }  
+    .replacednav {
+        display:flex;
+    }
     .replacednav{
-        /* display: flex; */
+        display: flex;
+        width:100vw;
+        height:7vh;
+        /* position:relative; */
+        justify-content: space-between;
+        background-color: #ffffff;
+        border: #fff 1px solid;
     } 
+    .arrow{
+        display:block;
+        display:flex;
+        color: #292F33;
+        margin-top:5%;
+        font-weight:500;
+        cursor:pointer;
+        /* position: absolute; */
+        bottom: 3%;
+        align-items: center;
+    }
+    .favtab{
+        display: flex;
+        position: absolute;
+        left:35%;
+        font-weight:500;
+        margin-top:5%;
+        font-size:1.3rem;
+        color: #292F33;
+    }
+    .searchicon{
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        right: 0;
+        color: #292F33;
+        margin-top: 5%;
+        font-weight:500;
+        cursor:pointer;
+        
+        /* top:0.1%; */
+        /* align-items:center; */
+        
+    }
+    .searchIcon{
+        display: block;
+        position:absolute;
+        right:7%;
+        top:-1.5%;
+        cursor:pointer;
+    }
+    .navbar{
+       /* display: none; */
+    }
 }
