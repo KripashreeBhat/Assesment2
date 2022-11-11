@@ -13,15 +13,17 @@ export class FavComponent implements OnInit {
   likedlist:any;
   replacenav:boolean=false;
   found = false;
-  table =true;
+  table = true;
   filled = true;
   notfilled = false;
+  len:any;
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.likedlist = localStorage.getItem('favs');
     this.likedlist = JSON.parse(this.likedlist);
-    if(this.likedlist == null){
+    this.len = this.likedlist.length;
+    if(this.likedlist === null){
       this.found = true;
       this.table = false;
     }

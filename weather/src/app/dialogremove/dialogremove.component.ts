@@ -11,8 +11,9 @@ export class DialogremoveComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
  clearall(){
   localStorage.removeItem('favs');
-  window.location.reload();
+  this.route.navigateByUrl('/fav').then(() => window.location.reload());
  }
 }

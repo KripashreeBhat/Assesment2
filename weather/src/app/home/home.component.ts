@@ -78,17 +78,19 @@ click(){
   //     localStorage.setItem('favs',JSON.stringify(this.favs));
   //   }
 
-
-   let fav = this.name;
-   this.http.get(`${API_URL}/weather?q=${fav}&appid=${API_KEY}`).subscribe(data=>{
-   console.log(data);
-   this.favs = localStorage.getItem('favs');
-   this.favs = JSON.parse(this.favs) || [];
-   this.favs.push({data});
-   localStorage.setItem('favs',JSON.stringify(this.favs));
-  
- 
+  //  if(this.clickfav== true){
+    let fav = this.name;
+    this.http.get(`${API_URL}/weather?q=${fav}&appid=${API_KEY}`).subscribe(data=>{
+    console.log(data);
+    this.favs = localStorage.getItem('favs');
+    this.favs = JSON.parse(this.favs) || [];
+    this.favs.push({data});
+    localStorage.setItem('favs',JSON.stringify(this.favs));
   })
+   
+  
+  //  }
+  
    }
 
 
@@ -111,7 +113,7 @@ celconv(){
   this.conv = (this.temp['main'].temp-273.15).toFixed(0);
 }
 farconv(){
-  this.conv = this.temp['main'].temp;
+  this.conv = ((1.8*(this.temp['main'].temp-273.15)+32).toFixed(0));
 }
 
 

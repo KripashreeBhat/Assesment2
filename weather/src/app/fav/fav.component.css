@@ -97,6 +97,9 @@ margin-left: 2rem;
 .fav-icon{
     margin-right:2rem;
 }
+.filled-fav{
+    color:#FFE539;
+}
 @media(max-width:500px){
     .container{
         /* border: 1px solid #fff; */

@@ -32,8 +32,8 @@
 <div class="tabs" [class.hidetabmenu]="hidetab" (click)="closeTab()">
     <ul>
         <li><a routerLink="/home"><span class="cap">H</span>OME</a></li>
-        <li><a routerLink="/fav" ><span class="cap">F</span>AVOURITE</a></li>
-        <li><a routerLink="/recent"><span class="cap">R</span>ECENT SEARCH</a></li>
+        <li><a routerLink="/fav" (click)="fav()"><span class="cap">F</span>AVOURITE</a></li>
+        <li><a routerLink="/recent" (click)="recent()"><span class="cap">R</span>ECENT SEARCH</a></li>
     </ul>
 
 </div>
