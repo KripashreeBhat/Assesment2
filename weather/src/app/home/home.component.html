@@ -5,13 +5,13 @@
     <div class="place">
         <h3 class="current-place">{{this.temp['name']}}, Karnataka</h3>
     </div>
-    <div class="flex-fav">
-    <div class="addfav"  *ngIf="clickfav"(click)="click()">
+    <div class="flex-fav" (click)="click()">
+    <div class="addfav"  *ngIf="clickfav">
         <mat-icon class="favicon">favorite_border</mat-icon>
         <p class="add">Add to favourite</p>
     </div>
     <!-- <ng-template #elseBlock> -->
-    <div class="addfav" *ngIf = "unclick" (click)="clickfavr()">
+    <div class="addfav" *ngIf = "unclick">
         <mat-icon class="favicon addedfavicon">favorite</mat-icon>
         <p class="add added">Added to favourite</p>
     </div>

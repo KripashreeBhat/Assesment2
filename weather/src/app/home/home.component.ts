@@ -49,10 +49,38 @@ export class HomeComponent implements OnInit {
   // ,err=>alert('OOPs!! Something went wrong, Please try again'
 }
 click(){
-  this.clickfav = false;
-  this.unclick = true;
-  let fav = this.name;
-  this.http.get(`${API_URL}/weather?q=${fav}&appid=${API_KEY}`).subscribe(data=>{
+   this.clickfav =! this.clickfav;
+   this.unclick =! this.unclick;
+  //  if(this.clickfav==true){
+  //   if(localStorage.getItem('favs')){
+  //     this.favs = localStorage.getItem('favs');
+  //     let notfav = this.unfavs;
+  //     this.favs = JSON.parse(this.favs);
+  //     this.favs = [this.unfavs,...this.favs];
+  //     console.log(this.favs);
+  //     localStorage.setItem('favs', JSON.stringify(this.favs));
+  //   }
+  //   else {
+  //     this.favs = [this.unfavs];
+
+  //   }
+  //   localStorage.setItem('favs', JSON.stringify(this.favs))
+      
+  //   }
+  //   else{
+  //     this.favs = localStorage.getItem('favs');
+  //     this.favs = JSON.parse(this.favs);
+  //     let curfav = this.favs.find((currfav:any)=>{
+  //       return currfav['name']===this.unfavs['name'];
+
+  //     })
+  //     this.favs.splice(curfav.index,1);
+  //     localStorage.setItem('favs',JSON.stringify(this.favs));
+  //   }
+
+
+   let fav = this.name;
+   this.http.get(`${API_URL}/weather?q=${fav}&appid=${API_KEY}`).subscribe(data=>{
    console.log(data);
    this.favs = localStorage.getItem('favs');
    this.favs = JSON.parse(this.favs) || [];
@@ -61,19 +89,26 @@ click(){
   
  
   })
-}
-clickfavr(){
- this.clickfav = true;
- this.unclick = false;
- this.unfavs = localStorage.getItem('favs');
- this.unfavs = JSON.parse(this.unfavs) || [];
+   }
+
+
+// clickfavr(){
+//  this.clickfav =! this.clickfav;
+//  this.unclick =! this.unclick;
+//  this.http.get(`${API_URL}/weather?q=${this.name}&appid=${API_KEY}`).subscribe(data=>{
+//  this.unfavs = localStorage.getItem('favs');
+//  this.unfavs = JSON.parse(this.unfavs).filter('favs[name]');
+//  localStorage.removeItem(this.unfavs)
+//  })
 
  
+// }
+color(){
+  return this.clickfav === false;
 }
 
-
 celconv(){
-  this.conv = (this.temp['main'].temp-273.15).toFixed(2);
+  this.conv = (this.temp['main'].temp-273.15).toFixed(0);
 }
 farconv(){
   this.conv = this.temp['main'].temp;

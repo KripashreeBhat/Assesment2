@@ -7,9 +7,14 @@
     <div class="searchbar">
    
     <form [formGroup]="searchForm">
-   <div class="search" (click)="search()" [class.hidesearch]="hidesearchtab"  > 
-    <mat-icon class="arrow" routerLink="/home">arrow_back</mat-icon>
-    <input formControlName="name"  type="tel" placeholder="Search City">
+   <div class="search"  [class.hidesearch]="hidesearchtab"  >
+ 
+       <mat-icon (click)="navigate()" class="arrow">arrow_back</mat-icon>
+    
+       <div class="field" (click)="search()">
+           <input formControlName="name"  type="text" placeholder="Search City">
+           <hr class="searchline"> 
+</div>
 </div>
 </form>
 <mat-icon class="ss" (click)="search()">search</mat-icon>

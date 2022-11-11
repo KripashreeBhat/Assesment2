@@ -47,8 +47,11 @@
                        <p>{{fav.data.weather[0].main}}</p>
                     </div>   
                 </div>
-                     <div class="fav-icon">
-                        <mat-icon >favorite</mat-icon>
+                     <div class="fav-icon" *ngIf = "filled" >
+                        <mat-icon (click)=filed() >favorite</mat-icon>
+                     </div>
+                     <div class="fav-icon" *ngIf = "notfilled"  >
+                        <mat-icon (click)="notfiled()">favorite_border</mat-icon>
                      </div>
                     <!-- </div> -->
                 </div>

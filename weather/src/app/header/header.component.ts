@@ -75,5 +75,7 @@ search(){
 })
 // this.route.navigate(['home']);
 }
-
+navigate(){
+  this.route.navigateByUrl('/home').then(() => window.location.reload());
+}
 }

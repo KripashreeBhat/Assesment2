@@ -1,3 +1,5 @@
+import { throwDialogContentAlreadyAttachedError } from '@angular/cdk/dialog';
+import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogremoveComponent } from '../dialogremove/dialogremove.component';
@@ -12,17 +14,36 @@ export class FavComponent implements OnInit {
   replacenav:boolean=false;
   found = false;
   table =true;
+  filled = true;
+  notfilled = false;
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.likedlist = localStorage.getItem('favs');
     this.likedlist = JSON.parse(this.likedlist);
-   
+    if(this.likedlist == null){
+      this.found = true;
+      this.table = false;
+    }
+    else{
+      this.table = true;
+      this.found = false;
+    }
   }
 opendialog(){
   this.dialog.open(DialogremoveComponent,{
     panelClass: 'my-class'
   });
 
+
 }
+filed(){
+  this.filled = false;
+  this.notfilled = true;
+}
+notfiled(){
+  this.filled = true;
+  this.notfilled = false;
+}
+
 }
