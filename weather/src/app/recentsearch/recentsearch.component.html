@@ -30,7 +30,7 @@
 </div>
     <div class="table scroll">
     <table>
-        <tr  *ngFor="let search of recent">
+        <tr  *ngFor="let search of recent" (click)="displayinfo()">
             <td>
                 <div class="row-1">
                     <div class="place">
@@ -47,9 +47,13 @@
                        <p>{{search.data.weather[0].main}}</p>
                     </div>   
                 </div>
-                     <div class="fav-icon">
-                        <mat-icon *ngIf="unfav">favorite_border</mat-icon>
-                     </div>
+                {{addedfav(search.data.name)}}
+                <div class="fav-icon" *ngIf="filled">
+                    <mat-icon class="yellowcolor"(click)="filed()">favorite</mat-icon>
+                  </div>
+                  <div class="fav-icon" *ngIf="notfilled">
+                    <mat-icon (click)="notfiled()">favorite_border</mat-icon>
+                  </div>
                         
                 </div>
             </td>

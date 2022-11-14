@@ -14,6 +14,12 @@ body{
     width: 458px;
   
 }
+.active{
+    /* background-color:gray; */
+    color: #FFD639;
+    border-bottom:  #FFD639 2px solid;
+    
+}
 @media(max-width:500px){
     .my-class .mat-dialog-container{
         height: 150px;

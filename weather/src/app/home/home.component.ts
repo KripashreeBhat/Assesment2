@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { throwDialogContentAlreadyAttachedError } from '@angular/cdk/dialog';
 const API_URL = environment.API_URL;
 const API_KEY = environment.API_KEY;
 @Component({
@@ -13,15 +14,17 @@ export class HomeComponent implements OnInit {
   weatherTemp : any;
   temp:any;
   conv :any;
-  name:any;
+  name :any;
   store:any;
   weatherIcon:any;
   dispbtn:boolean=false;
   favs:any;
+  favdata:any;
   unfavs:any;
+  favrts:any;
   filteredList!: any[];
-  clickfav = true;
-   unclick = false;
+  clickfav =true;
+   unclick =false;
   constructor(private http:HttpClient, private route: Router) {
     this.loadData();
    }
@@ -30,66 +33,96 @@ export class HomeComponent implements OnInit {
    ngOnInit(): void {
     localStorage.getItem('name')
     this.dispbtn = true;
+    
+    console.log("uitguytg");
     // this.route.navigate(['/home']).then(()=>window.location.reload())
+    this.name = localStorage.getItem('name');
+    this.name = JSON.parse(this.name);
+    console.log(this.name);
+     this.favrts = localStorage.getItem('favs');
+     this.favrts = JSON.parse(this.favrts);
+     for(let fav of this.favrts){
+      console.log(this.favrts);
+      console.log((fav.name).toLowerCase());
+      
+      if((fav['name']).toLowerCase() === this.name){
+        this.clickfav=false;
+        this.unclick =true;
+        
+        
+      }
+      
+     }
+    
   }
   loadData(){
     this.name = localStorage.getItem('name');
     this.name = JSON.parse(this.name);
+    console.log(this.name);
+    
+    if(this.name === null){
+      this.name = 'udupi';
+    }
     this.http.get(`${API_URL}/weather?q=${this.name}&appid=${API_KEY}`).subscribe(data=>{
       console.log(data);
       this.temp = data;
       this.conv = this.temp['main'].temp; 
-      this.weatherIcon = `http://openweathermap.org/img/wn/${this.temp['weather'][0].icon}@2x.png`
+      this.weatherIcon = `http://openweathermap.org/img/wn/${this.temp['weather'][0].icon}@2x.png`;
+      this.favdata=localStorage.getItem('favs');
+      this.favdata = JSON.parse(this.favdata);
       // this.weatherTemp = (this.temp['main'].temp)
       // console.log(this.weatherTemp);
       // this.route.navigate(['/home']).then
       // window.location.reload();
       // window.location.reload()
+
   })
+
+  
+    
   // ,err=>alert('OOPs!! Something went wrong, Please try again'
 }
 click(){
    this.clickfav =! this.clickfav;
    this.unclick =! this.unclick;
-  //  if(this.clickfav==true){
-  //   if(localStorage.getItem('favs')){
-  //     this.favs = localStorage.getItem('favs');
-  //     let notfav = this.unfavs;
-  //     this.favs = JSON.parse(this.favs);
-  //     this.favs = [this.unfavs,...this.favs];
-  //     console.log(this.favs);
-  //     localStorage.setItem('favs', JSON.stringify(this.favs));
-  //   }
-  //   else {
-  //     this.favs = [this.unfavs];
+   if(this.unclick == true){
+    if(localStorage.getItem('favs')){
+      this.favs = localStorage.getItem('favs');
+      let notfav = this.temp;
+      this.favs = JSON.parse(this.favs);
+      this.favs = [this.temp,...this.favs];
+      console.log(this.favs);
+      localStorage.setItem('favs', JSON.stringify(this.favs));
+    }
+    else {
+      this.favs = [this.temp];
 
-  //   }
-  //   localStorage.setItem('favs', JSON.stringify(this.favs))
+    }
+    localStorage.setItem('favs', JSON.stringify(this.favs))
       
-  //   }
-  //   else{
-  //     this.favs = localStorage.getItem('favs');
-  //     this.favs = JSON.parse(this.favs);
-  //     let curfav = this.favs.find((currfav:any)=>{
-  //       return currfav['name']===this.unfavs['name'];
+    }
+    else{
+      this.favs = localStorage.getItem('favs');
+      this.favs = JSON.parse(this.favs);
+      let curfav = this.favs.find((currfav:any)=>{
+        return currfav['name']===this.temp['name'];
 
-  //     })
-  //     this.favs.splice(curfav.index,1);
-  //     localStorage.setItem('favs',JSON.stringify(this.favs));
-  //   }
+      })
+      this.favs.splice(curfav.index,1);
+      localStorage.setItem('favs',JSON.stringify(this.favs));
+    }
 
-  //  if(this.clickfav== true){
-    let fav = this.name;
-    this.http.get(`${API_URL}/weather?q=${fav}&appid=${API_KEY}`).subscribe(data=>{
-    console.log(data);
-    this.favs = localStorage.getItem('favs');
-    this.favs = JSON.parse(this.favs) || [];
-    this.favs.push({data});
-    localStorage.setItem('favs',JSON.stringify(this.favs));
-  })
+
+  //   let fav = this.name;
+  //   this.http.get(`${API_URL}/weather?q=${fav}&appid=${API_KEY}`).subscribe(data=>{
+  //   this.favs = localStorage.getItem('favs');
+  //   this.favs = JSON.parse(this.favs) || [];
+  //   this.favs.push({data});
+  //   localStorage.setItem('favs',JSON.stringify(this.favs));
+  // })
    
+
   
-  //  }
   
    }
 

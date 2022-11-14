@@ -94,6 +94,9 @@ margin-left: 2rem;
     margin-right:2rem;
 }
 
+.yellowcolor{
+    color:#FFE539;
+}
 @media(max-width:500px){
     .container{
         /* border: 1px solid #fff; */

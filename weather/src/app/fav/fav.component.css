@@ -100,6 +100,12 @@ margin-left: 2rem;
 .filled-fav{
     color:#FFE539;
 }
+.yellowcolor{
+    color:#FFE539;
+}
+.mat-icon{
+    cursor:pointer;
+}
 @media(max-width:500px){
     .container{
         /* border: 1px solid #fff; */

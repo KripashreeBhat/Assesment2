@@ -73,7 +73,7 @@ input:focus{
 .tabs ul li{
     list-style: none;
     
-    font-size:1rem;
+    font-size:0.85rem;
     
 }
 .tabs ul li a:hover{
@@ -94,7 +94,7 @@ input:focus{
 }
 .date-time{
     display:flex;
-    font-size:1rem;
+    font-size:0.9rem;
     /* margin-right: 8%; */
     margin-top: 1%;
     /* margin-bottom: 1%; */

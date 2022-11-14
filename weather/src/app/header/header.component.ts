@@ -61,14 +61,15 @@ search(){
   let name = this.searchForm.get('name')?.value;
   localStorage.setItem('name',JSON.stringify(this.searchForm.get('name')?.value));
   this.http.get(`${API_URL}/weather?q=${name}&appid=${API_KEY}`).subscribe(data=>{
-  console.log(data);
+  // console.log(data);
     
   this.temp=localStorage.getItem('temp');
   this.temp = JSON.parse(this.temp) || [];
-  this.temp.push({data});
-  console.log(this.temp);
+  this.temp.unshift({data});
+  // console.log(this.temp);
   localStorage.setItem('temp', JSON.stringify(this.temp));
-   this.route.navigate(['/home']).then(()=>window.location.reload())
+   this.route.navigate(['/home']);
+   window.location.reload();
    
 
 
@@ -79,9 +80,9 @@ navigate(){
   this.route.navigateByUrl('/home').then(() => window.location.reload());
 }
 fav(){
-  this.route.navigateByUrl('/fav').then(() => window.location.reload());
+  // this.route.navigateByUrl('/fav').then(() => window.location.reload());
 }
 recent(){
-  this.route.navigateByUrl('/recent').then(() => window.location.reload());
+  // this.route.navigateByUrl('/recent').then(() => window.location.reload());
 }
 }

@@ -20,7 +20,7 @@
   <!-- <ng-template #elseBlock> -->
   <div *ngIf="table">
     <div class="top-bar">
-      <p>{{ this.len }} City added as favourite</p>
+      <p>{{ len }} City added as favourite</p>
 
       <a (click)="opendialog()">Remove All</a>
     </div>
@@ -31,32 +31,34 @@
             <div class="row-1">
               <!-- <div class="row"> -->
               <div class="place">
-                <p>{{ fav.data.name }}</p>
+                <p>
+                  {{fav['name']}}
+                </p>
               </div>
               <div class="fore-cast">
                 <div class="forecast-img">
                   <img
                     src="http://openweathermap.org/img/wn/{{
-                      fav.data['weather'][0].icon
+                      fav['weather'][0].icon
                     }}.png"
                     alt=""
                   />
                 </div>
                 <div class="description">
                   <h2>
-                    {{ (fav.data["main"].temp - 273.15).toFixed(0)
+                    {{ (fav["main"].temp - 273.15).toFixed(0)
                     }}<span>&#176;C</span>
                   </h2>
                 </div>
                 <div class="full-des">
-                  <p>{{ fav.data.weather[0].main }}</p>
+                  <p>{{ fav.weather[0].main }}</p>
                 </div>
               </div>
               <div class="fav-icon" *ngIf="filled">
-                <mat-icon (click)="filed()">favorite</mat-icon>
+                <mat-icon class="yellowcolor" (click)="remove(fav)">favorite</mat-icon>
               </div>
               <div class="fav-icon" *ngIf="notfilled">
-                <mat-icon (click)="notfiled()">favorite_border</mat-icon>
+                <mat-icon (click)="remove(fav)">favorite_border</mat-icon>
               </div>
               <!-- </div> -->
             </div>

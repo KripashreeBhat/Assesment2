@@ -16,6 +16,9 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     this.name = localStorage.getItem('name');
     this.name = JSON.parse(this.name);
+    if(this.name === null){
+      this.name = 'udupi';
+    }
     this.http.get(`${API_URL}/weather?q=${this.name}&appid=${API_KEY}`).subscribe(data=>{
       this.temp = data;
   })
