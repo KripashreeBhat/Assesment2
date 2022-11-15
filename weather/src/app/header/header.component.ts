@@ -66,10 +66,9 @@ search(){
   this.temp=localStorage.getItem('temp');
   this.temp = JSON.parse(this.temp) || [];
   this.temp.unshift({data});
-  // console.log(this.temp);
   localStorage.setItem('temp', JSON.stringify(this.temp));
-   this.route.navigate(['/home']);
-   window.location.reload();
+   this.route.navigate(['/home']).then(() =>
+   window.location.reload());
    
 
 

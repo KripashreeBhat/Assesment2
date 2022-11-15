@@ -1,65 +1,77 @@
 <div class="navbar">
-<app-header></app-header>
+  <app-header></app-header>
 </div>
 
 <div class="replacednav" [class.replace]="replacenav">
-   
-    <mat-icon  class="arrow" routerLink="/home">arrow_back</mat-icon>
-    <h3 class="favtab">Recent search</h3>
-    <mat-icon class="searchicon">search</mat-icon>
+  <mat-icon class="arrow" routerLink="/home">arrow_back</mat-icon>
+  <h3 class="favtab">Recent search</h3>
+  <mat-icon class="searchicon">search</mat-icon>
 </div>
 
 <div class="container">
-    <div class="fav-empty" *ngIf ="found">
-        <!-- <div class="fav-empty" *ngIf ="fav; else elseBlock"> -->
- <div class="no-fav">
-    <img src="/assets/emptyfav.png" alt="empty fav">
-</div>
+  <div class="fav-empty" *ngIf="found">
+    <!-- <div class="fav-empty" *ngIf ="fav; else elseBlock"> -->
+    <div class="no-fav">
+      <img src="/assets/emptyfav.png" alt="empty fav" />
+    </div>
     <div class="not-added">
-    <h3>No Recent Search</h3>
-</div>
-</div>
+      <h3>No Recent Search</h3>
+    </div>
+  </div>
 
-<!-- <ng-template #elseBlock> -->
-        <div class="top-bar" *ngIf="table">
-        
-        <p>You recently seacrhed for</p>
-   
-        <a (click)="clearAll()">Clear All</a>
-    
-</div>
-    <div class="table scroll">
+  <!-- <ng-template #elseBlock> -->
+  <div class="top-bar" *ngIf="table">
+    <p>You recently seacrhed for</p>
+
+    <a (click)="clearAll()">Clear All</a>
+  </div>
+  <div class="table scroll">
     <table>
-        <tr  *ngFor="let search of recent" (click)="displayinfo()">
-            <td>
-                <div class="row-1">
-                    <div class="place">
-                        <p>{{search.data.name}}</p>
-                    </div>
-                    <div class="fore-cast">
-                        <div class="forecast-img">
-                        <img src="http://openweathermap.org/img/wn/{{search.data['weather'][0].icon}}.png" alt="">
-                    </div>
-                    <div class="description">
-                        <h2>{{((search.data['main'].temp)-273.15).toFixed(0)}}<span>&#176;C</span></h2>
-                    </div>
-                    <div class="full-des">
-                       <p>{{search.data.weather[0].main}}</p>
-                    </div>   
-                </div>
-                {{addedfav(search.data.name)}}
-                <div class="fav-icon" *ngIf="filled">
-                    <mat-icon class="yellowcolor"(click)="filed()">favorite</mat-icon>
-                  </div>
-                  <div class="fav-icon" *ngIf="notfilled">
-                    <mat-icon (click)="notfiled()">favorite_border</mat-icon>
-                  </div>
-                        
-                </div>
-            </td>
-        </tr>
+      <!-- (click)="displayinfo(search.data.name)" -->
+      <tr *ngFor="let search of recent">
+        <td class="tablerows">
+          <div class="row-1">
+            <div class="place">
+              {{ addedfav(search.data.name) }}
+              <p *ngIf="filled" style="color: #ffe539">
+                {{ search.data.name }}
+              </p>
+              <p *ngIf="notfilled" style="color: white">
+                {{ search.data.name }}
+              </p>
+            </div>
+            <div class="fore-cast">
+              <div class="forecast-img">
+                <img
+                  src="http://openweathermap.org/img/wn/{{
+                    search.data['weather'][0].icon
+                  }}.png"
+                  alt=""
+                />
+              </div>
+              <div class="description">
+                <h2>
+                  {{ (search.data["main"].temp - 273.15).toFixed(0)
+                  }}<span>&#176;C</span>
+                </h2>
+              </div>
+              <div class="full-des">
+                <p>{{ search.data.weather[0].main }}</p>
+              </div>
+            </div>
+            <!-- {{addedfav(search.data.name)}} -->
+            <div class="fav-icon" >
+              <div *ngIf="filled" (click)="addremovefav(search)">
+                <mat-icon class="yellowcolor" (click)="addremovefav(search)">favorite</mat-icon>
+              </div>
+              <div *ngIf="notfilled" (click)="addremovefav(search)">
+                <mat-icon (click)="addremovefav(search)">favorite_border</mat-icon>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
     </table>
+  </div>
+  <!-- </ng-template> -->
 </div>
-    <!-- </ng-template> -->
-</div>
-

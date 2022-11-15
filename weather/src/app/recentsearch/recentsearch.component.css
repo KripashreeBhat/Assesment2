@@ -97,6 +97,15 @@ margin-left: 2rem;
 .yellowcolor{
     color:#FFE539;
 }
+.color{
+    color:#FFE539;
+}
+tr{
+    cursor:pointer;
+}
+tr:hover{
+    opacity: 0.8;
+}
 @media(max-width:500px){
     .container{
         /* border: 1px solid #fff; */

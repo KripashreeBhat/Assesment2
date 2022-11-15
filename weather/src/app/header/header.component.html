@@ -1,57 +1,62 @@
-
-<div class="navbar"  [class.nav]="normheader">
-<div class="header">
+<div class="navbar" [class.nav]="normheader">
+  <div class="header">
     <div id="logo" class="weatherlogo">
-        <img src="/assets/weatherlogo.png">
-        </div>
+      <img src="/assets/weatherlogo.png" />
+    </div>
     <div class="searchbar">
-   
-    <form [formGroup]="searchForm">
-   <div class="search"  [class.hidesearch]="hidesearchtab"  >
- 
-       <mat-icon (click)="navigate()" class="arrow">arrow_back</mat-icon>
-    
-       <div class="field" (click)="search()">
-           <input formControlName="name"  type="text" placeholder="Search City">
-           <hr class="searchline"> 
-</div>
-</div>
-</form>
-<mat-icon class="ss" (click)="search()">search</mat-icon>
-</div>
-<mat-icon  class="searchIcon"(click)="opensearch()">search</mat-icon>
+      <form [formGroup]="searchForm">
+        <div class="search" [class.hidesearch]="hidesearchtab">
+          <mat-icon (click)="navigate()" class="arrow">arrow_back</mat-icon>
 
-</div>
+          <div class="field" (click)="search()">
+            <input
+              formControlName="name"
+              type="text"
+              placeholder="Search City"
+            />
+            <hr class="searchline" />
+          </div>
+        </div>
+      </form>
+      <mat-icon class="ss" (click)="search()">search</mat-icon>
+    </div>
+    <mat-icon class="searchIcon" (click)="opensearch()">search</mat-icon>
+  </div>
 
-<div class="hide-tab" *ngIf="hamburger" (click)="openTab()" >
-<span></span>
-<span></span>
-<span></span>
-</div>
-<div class="tab-section" >
-<div class="tabs" [class.hidetabmenu]="hidetab" (click)="closeTab()">
-    <ul>
-        <li ><a routerLink="/home" [routerLinkActive]="'active'" ><span class="cap">H</span>OME</a></li>
-        <li ><a routerLink="/fav"  [routerLinkActive]="'active'" (click)="fav()"><span class="cap">F</span>AVOURITE</a></li>
-        <li ><a routerLink="/recent" [routerLinkActive]="'active'" (click)="recent()"><span class="cap">R</span>ECENT SEARCH</a></li>
-    </ul>
+  <div class="hide-tab" *ngIf="hamburger" (click)="openTab()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="tab-section">
+    <div class="tabs" [class.hidetabmenu]="hidetab" (click)="closeTab()">
+      <ul>
+        <li>
+          <a routerLink="/home" [routerLinkActive]="'active'"
+            ><span class="cap">H</span>OME</a
+          >
+        </li>
+        <li>
+          <a routerLink="/fav" [routerLinkActive]="'active'" (click)="fav()"
+            ><span class="cap">F</span>AVOURITE</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/recent"
+            [routerLinkActive]="'active'"
+            (click)="recent()"
+            ><span class="cap">R</span>ECENT SEARCH</a
+          >
+        </li>
+      </ul>
+    </div>
 
+    <div class="date-time">
+      <p>{{ date | date: "E" }},</p>
+      <p class="date">{{ date | date: "mediumDate" }}</p>
+      <p class="time">{{ date | date: "shortTime" }}</p>
+    </div>
+  </div>
+  <hr class="line" />
 </div>
-
-<div class="date-time">
-    
-    <p>{{date|date:'E'}},</p>
-    <p class="date">{{date|date:'mediumDate'}}</p>
-    <p class="time">{{date|date:'shortTime'}}</p>
-</div>
-</div>
-<hr class="line">
-</div>
-
-<!-- <div class="replacednav" [class.replace]="replacenav">
-   
-    <mat-icon  class="arrow" routerLink="/home">arrow_back</mat-icon>
-    <h3 class="favtab">Favourite</h3>
-    <mat-icon class="searchicon">search</mat-icon>
-</div> -->
-

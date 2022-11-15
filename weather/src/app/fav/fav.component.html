@@ -8,64 +8,69 @@
 </div>
 
 <div class="container">
-  <div class="fav-empty" *ngIf="found">
-    <div class="no-fav">
-      <img src="/assets/emptyfav.png" alt="empty fav" />
+  <div class="container" *ngIf="len > 0; then disptable; else dispfound"></div>
+  <ng-template #dispfound>
+    <div class="fav-empty">
+      <div class="no-fav">
+        <img src="/assets/emptyfav.png" alt="empty fav" />
+      </div>
+      <div class="not-added">
+        <h3>No Favourites added</h3>
+      </div>
     </div>
-    <div class="not-added">
-      <h3>No Favourites added</h3>
-    </div>
-  </div>
-
+  </ng-template>
   <!-- <ng-template #elseBlock> -->
-  <div *ngIf="table">
-    <div class="top-bar">
-      <p>{{ len }} City added as favourite</p>
+  <ng-template #disptable>
+    <div>
+      <div class="top-bar">
+        <p>{{ len }} City added as favourite</p>
 
-      <a (click)="opendialog()">Remove All</a>
+        <a (click)="opendialog()">Remove All</a>
+      </div>
+      <div class="table scroll">
+        <table>
+          <tr *ngFor="let fav of likedlist">
+            <td>
+              <div class="row-1">
+                <!-- <div class="row"> -->
+                <div class="place">
+                  <p>
+                    {{ fav["name"] }}
+                  </p>
+                </div>
+                <div class="fore-cast">
+                  <div class="forecast-img">
+                    <img
+                      src="http://openweathermap.org/img/wn/{{
+                        fav['weather'][0].icon
+                      }}.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="description">
+                    <h2>
+                      {{ (fav["main"].temp - 273.15).toFixed(0)
+                      }}<span>&#176;C</span>
+                    </h2>
+                  </div>
+                  <div class="full-des">
+                    <p>{{ fav.weather[0].main }}</p>
+                  </div>
+                </div>
+                <div class="fav-icon" *ngIf="filled">
+                  <mat-icon class="yellowcolor" (click)="remove(fav)"
+                    >favorite</mat-icon
+                  >
+                </div>
+                <div class="fav-icon" *ngIf="notfilled">
+                  <mat-icon (click)="remove(fav)">favorite_border</mat-icon>
+                </div>
+                <!-- </div> -->
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
-    <div class="table scroll">
-      <table>
-        <tr *ngFor="let fav of likedlist">
-          <td>
-            <div class="row-1">
-              <!-- <div class="row"> -->
-              <div class="place">
-                <p>
-                  {{fav['name']}}
-                </p>
-              </div>
-              <div class="fore-cast">
-                <div class="forecast-img">
-                  <img
-                    src="http://openweathermap.org/img/wn/{{
-                      fav['weather'][0].icon
-                    }}.png"
-                    alt=""
-                  />
-                </div>
-                <div class="description">
-                  <h2>
-                    {{ (fav["main"].temp - 273.15).toFixed(0)
-                    }}<span>&#176;C</span>
-                  </h2>
-                </div>
-                <div class="full-des">
-                  <p>{{ fav.weather[0].main }}</p>
-                </div>
-              </div>
-              <div class="fav-icon" *ngIf="filled">
-                <mat-icon class="yellowcolor" (click)="remove(fav)">favorite</mat-icon>
-              </div>
-              <div class="fav-icon" *ngIf="notfilled">
-                <mat-icon (click)="remove(fav)">favorite_border</mat-icon>
-              </div>
-              <!-- </div> -->
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <!-- </ng-template> -->
+  </ng-template>
 </div>
