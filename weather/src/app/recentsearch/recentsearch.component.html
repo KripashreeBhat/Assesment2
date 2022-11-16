@@ -31,16 +31,16 @@
       <tr *ngFor="let search of recent">
         <td class="tablerows">
           <div class="row-1">
-            <div class="place">
-              {{ addedfav(search.data.name) }}
-              <p *ngIf="filled" style="color: #ffe539">
+            <div class="place" (click)="displayinfo(search.data.name)">
+              
+              <p >
                 {{ search.data.name }}
               </p>
-              <p *ngIf="notfilled" style="color: white">
+              <!-- <p *ngIf="notfilled" style="color: white">
                 {{ search.data.name }}
-              </p>
+              </p> --> 
             </div>
-            <div class="fore-cast">
+            <div class="fore-cast" (click)="displayinfo(search.data.name)">
               <div class="forecast-img">
                 <img
                   src="http://openweathermap.org/img/wn/{{
@@ -59,13 +59,13 @@
                 <p>{{ search.data.weather[0].main }}</p>
               </div>
             </div>
-            <!-- {{addedfav(search.data.name)}} -->
+            {{addedfav(search.data.name)}}
             <div class="fav-icon" >
-              <div *ngIf="filled" (click)="addremovefav(search)">
-                <mat-icon class="yellowcolor" (click)="addremovefav(search)">favorite</mat-icon>
+              <div *ngIf="filled" (click)="removefromfav(search)">
+                <mat-icon class="yellowcolor"  >favorite</mat-icon>
               </div>
-              <div *ngIf="notfilled" (click)="addremovefav(search)">
-                <mat-icon (click)="addremovefav(search)">favorite_border</mat-icon>
+              <div *ngIf="notfilled"  (click)="addtofav(search)">
+                <mat-icon>favorite_border</mat-icon>
               </div>
             </div>
           </div>

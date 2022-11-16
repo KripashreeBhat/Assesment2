@@ -77,10 +77,19 @@ button{
     
 
 }
-button:hover{
+.active{
     background-color: #fff;
     color:#E32843;
 }
+/* .fer:hover{
+    background-color: #fff;
+    color:#E32843;
+}
+
+.cel:hover{
+    background-color: #fff;
+    color:#E32843;
+} */
 .forecast-dis > p {
     display: flex;
     flex-wrap: wrap;

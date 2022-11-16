@@ -57,9 +57,19 @@ export class FavComponent implements OnInit {
   // }
   remove(data: any) {
     let remove = this.likedlist.filter(
-      (like: any) => like['name'] != data['name']
+      (like: any) => like.data.name != data.data.name
     );
     localStorage.setItem('favs', JSON.stringify(remove));
     this.route.navigateByUrl('/fav').then(() => window.location.reload());
   }
+  displayinfo(info:any) {
+    console.log(info);
+    localStorage.setItem('name', JSON.stringify(info));
+    this.name = localStorage.getItem('name');
+    console.log(this.name);
+    
+    this.route.navigate(['/home']);
+  }
+
+
 }

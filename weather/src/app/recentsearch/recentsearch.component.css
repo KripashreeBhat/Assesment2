@@ -62,7 +62,8 @@ table td{
 }
 .place{
     display: flex;
-
+    width:100px;
+    /* border: 1px solid black; */
     font-size:1rem;
     margin-left: 1rem;
 }
@@ -72,6 +73,8 @@ justify-content: space-between;
 align-items: center;
 text-align: center;
 margin-left: 2rem;
+width:250px;
+/* border: 1px solid black; */
 /* margin-top:1rem */
 }
 
@@ -80,7 +83,7 @@ margin-left: 2rem;
     align-items: center;
     text-align: center;
     font-size: 2rem;
-    margin-left:1.7rem;
+    /* margin-left:1.7rem; */
 }
 .description span{
     font-size:1rem;
@@ -88,7 +91,11 @@ margin-left: 2rem;
 }
 .full-des{
     font-size: 1.22rem;
-    margin-left: 2rem;
+    margin-left: 1rem;
+    display: flex;
+    width:65px;
+    /* padding-left:-5rem; */
+    /* border: 1px solid black; */
 }
 .fav-icon{
     margin-right:2rem;
@@ -103,8 +110,13 @@ margin-left: 2rem;
 tr{
     cursor:pointer;
 }
-tr:hover{
-    opacity: 0.8;
+table td:hover{
+    background-color: rgba(255,255,255,0.3);
+    
+}
+
+table td:hover .place{
+    color: #FFE539;
 }
 @media(max-width:500px){
     .container{
@@ -116,8 +128,10 @@ tr:hover{
     .fore-cast{
         display:flex;
         justify-content: space-between;
-        
-        margin-left: 1rem;
+        /* border:1px solid black; */
+        width:150px;
+        height: 35px;
+        margin-left: 0.5rem;
         /* margin-top:1rem */
         }
         .place{

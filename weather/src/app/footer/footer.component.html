@@ -6,8 +6,8 @@
         <img src="/assets/humidity.png" alt="">
     </div>
     <div class="info">
-        <p class="heading ">MinMax</p>
-        <h3>{{((this.temp['main'].temp_max)-273.15).toFixed(0)}}&#176;-{{((this.temp['main'].temp_min)-273.15).toFixed(0)}}&#176;</h3>
+        <p class="heading ">Min-Max</p>
+        <h3>{{((this.temp['main'].temp_min)-273.15).toFixed(0)}}&#176;-{{((this.temp['main'].temp_max)-273.15).toFixed(0)}}&#176;</h3>
     </div>
     </div>
 
@@ -18,7 +18,7 @@
     </div>
     <div class="info">
         <p class="heading box-2">Pressure</p>
-        <h3>{{this.temp['main'].pressure}}</h3>
+        <h3>{{this.temp['main'].pressure}} pa</h3>
     </div>
     </div>
 
@@ -38,7 +38,7 @@
     </div>
     <div class="info">
         <p class="heading box-4">Wind</p>
-        <h3>{{this.temp['wind'].deg}}</h3>
+        <h3>{{this.temp['wind'].deg}} mph</h3>
     </div>
     </div>
     
@@ -48,7 +48,7 @@
     </div>
     <div class="info">
         <p class="heading  box-5">Visibility</p>
-        <h3>{{this.temp['visibility']}}</h3>
+        <h3>{{this.temp['visibility']/100}} mph</h3>
     </div>
     </div>
 </div>

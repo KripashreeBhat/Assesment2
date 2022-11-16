@@ -7,6 +7,9 @@
     /* height:22vh; */
     
 }
+h3{
+    font-size: 1.3rem;
+}
 .line{
     width:70%;
     margin:auto;
@@ -20,6 +23,11 @@
 }
 .info{
     padding-left:1rem;
+    
+}
+.info p{
+    font-size:1rem;
+    /* border: 1px solid black; */
 }
 
 .flex-items{
@@ -74,6 +82,14 @@
         /* width:100%;
         margin-top: 9.1rem; */
     }
+    h3{
+        font-size:1rem;
+    }
+    .info p{
+        font-size:0.9rem;
+        width:80px;
+        /* border: 1px solid black; */
+    }
 
 }
 
@@ -100,6 +116,9 @@
         cursor: pointer;
         overflow-x: none;
         -webkit-overflow-scrolling: auto;
+    }
+    .info p{
+        font-size:0.9rem;
     }
 
 }

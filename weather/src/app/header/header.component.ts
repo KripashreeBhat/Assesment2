@@ -78,6 +78,12 @@ search(){
 navigate(){
   this.route.navigateByUrl('/home').then(() => window.location.reload());
 }
+
+onKeydown(event:any) {
+  if (event.keyCode === 13) {
+    this.search();
+  }
+}
 fav(){
   // this.route.navigateByUrl('/fav').then(() => window.location.reload());
 }

@@ -11,15 +11,16 @@ export class RecentsearchComponent implements OnInit {
   replacenav: boolean = false;
   recent: any;
   unfav = true;
-  filled =false;
-  notfilled =true;
+  filled = false;
+  notfilled = true;
   favrts: any;
   info: any;
   name: any;
   favcolor = false;
-  favs:any;
-  value:any;
-  curfav :any;
+  favs: any;
+  value: any;
+  curfav: any;
+  temp: any;
   constructor(private route: Router) {}
 
   ngOnInit(): void {
@@ -34,12 +35,12 @@ export class RecentsearchComponent implements OnInit {
       this.table = true;
     }
   }
-  displayinfo(info:any) {
+  displayinfo(info: any) {
     console.log(info);
     localStorage.setItem('name', JSON.stringify(info));
     this.name = localStorage.getItem('name');
     console.log(this.name);
-    
+
     this.route.navigate(['/home']);
   }
 
@@ -56,10 +57,7 @@ export class RecentsearchComponent implements OnInit {
     //  console.log(data);
     if (this.favrts) {
       for (let fav of this.favrts) {
-        // console.log(data);
-        // console.log(fav['name']);
-
-        if (data == fav['name']) {
+        if (data == fav.data.name) {
           this.filled = true;
           this.notfilled = false;
           break;
@@ -71,61 +69,18 @@ export class RecentsearchComponent implements OnInit {
     }
   }
 
-   addremovefav(dat:any){
-    console.log(dat);
-    console.log(dat.data.name);
+  addtofav(add: any) {
     this.favs = localStorage.getItem('favs');
-    // this.filled =!this.filled;
-    // this.notfilled =!this.notfilled;
-    this.favs = localStorage.getItem('favs');
-      this.favs = JSON.parse(this.favs);
-       this.curfav = this.favs.find((currfav: any) => {
-        console.log(currfav['name']);
-        console.log(dat.data.name);
-        
-        
-       this.value =(currfav['name'] === dat.data.name);
-      })
-      console.log(this.value);
-      
-    if (this.value === false) {
-      console.log('joke');
-      
-       
-        this.favs = localStorage.getItem('favs');
-        // let notfav = this.temp;
-        this.favs = JSON.parse(this.favs);
-        // this.favs = [dat, ...this.favs];
-        this.favs = JSON.parse(this.favs) || [];
-        this.favs.push({dat});
-        // console.log(this.favs);
-        // for(let fav of this.favs){
+    this.favs = JSON.parse(this.favs) || [];
+    this.favs.push(add)
 
-          console.log(this.favs.data.name);
-        // }
-        
-        localStorage.setItem('favs', JSON.stringify(this.favs));
-       
-      localStorage.setItem('favs', JSON.stringify(this.favs));
-    } else {
-      this.favs = localStorage.getItem('favs');
-      this.favs = JSON.parse(this.favs);
-      let curfav = this.favs.find((currfav: any) => {
-        return currfav['name'] === dat.data.name;
-        
-        
-      });
-      this.favs.splice(curfav.index, 1);
-      localStorage.setItem('favs', JSON.stringify(this.favs));
-    }
+    localStorage.setItem('favs', JSON.stringify(this.favs));
+
   }
-   
-  addtofav() {
-    // this.filled = true;
-    // this.notfilled = false;
-  }
-  removefromfav() {
-    // this.filled = false;
-    // this.notfilled = true;
+  removefromfav(remove: any) {
+    this.favrts = localStorage.getItem('favs');
+    this.favrts = JSON.parse(this.favrts);
+    let remo = this.favrts.filter((like: any) => like.data.name != remove.data.name );
+    localStorage.setItem('favs', JSON.stringify(remo));
   }
 }

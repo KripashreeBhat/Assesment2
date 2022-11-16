@@ -34,7 +34,7 @@
 
 .mat-icon {
     color: #fff;
-    /* margin-left:50%; */
+    margin-right:3%;
     /* z-index:-2; */
 }
 
@@ -43,14 +43,16 @@
     width: 100%;
     border: none;
     color: #fff;
+    margin-left:1rem;
     background-color: transparent;
+    /* border: #000 1px solid; */
 
 }
 
 input::placeholder {
     color: #fff;
     font-size: 1.0rem;
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
     /* padding-left:1rem; */
     opacity: 0.3;
 }
@@ -58,7 +60,8 @@ input::placeholder {
 input:focus {
     outline: none;
     font-size: 1.0rem;
-    margin-left: 1rem;
+    /* padding-left:1rem; */
+    /* margin-left: 1rem; */
     color: #fff;
 }
 

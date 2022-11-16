@@ -1,45 +1,53 @@
 <!-- <p>home works</p> -->
 <app-header></app-header>
- <div class="container">
-    <div class="place-fav">
+<div class="container">
+  <div class="place-fav">
     <div class="place">
-        <h3 class="current-place">{{this.temp['name']}}</h3>
+      <h3 class="current-place">{{ this.temp["name"] }}</h3>
     </div>
     <div class="flex-fav" (click)="click()">
-    <div class="addfav"  *ngIf="clickfav">
+      <div class="addfav" *ngIf="clickfav">
         <mat-icon class="favicon">favorite_border</mat-icon>
         <p class="add">Add to favourite</p>
-    </div>
-    <!-- <ng-template #elseBlock> -->
-    <div class="addfav" *ngIf = "unclick">
+      </div>
+      <!-- <ng-template #elseBlock> -->
+      <div class="addfav" *ngIf="unclick">
         <mat-icon class="favicon addedfavicon">favorite</mat-icon>
         <p class="add added">Added to favourite</p>
+      </div>
+      <!-- </ng-template> -->
     </div>
-<!-- </ng-template> -->
-</div>
-</div>
+  </div>
 
-<div class="forecast">
-<div class="forecast-logo">
-    
-    <img [src]=weatherIcon alt="">
-    
-</div>
-<div class="cel-fer">
-    <div class="display-deg">
-        <h2>{{this.conv}}</h2>
+  <div class="forecast">
+    <div class="forecast-logo">
+      <img [src]="weatherIcon" alt="" />
     </div>
-    <div class="btn" *ngIf="dispbtn" >
-    <button class="cel" (click)="celconv()" >&#176;C</button>
-    <button class="fer" (click)="farconv()">&#176;F</button>
-    
+    <div class="cel-fer" (click)="remembertemp()">
+      <div class="display-deg">
+        <h2>{{ this.conv}}</h2>
+        <!-- <h2>{{ this.conv}}</h2> -->
+      </div>
+      <div class="btn">
+        <button
+          class="cel"
+          [ngClass]="{ active: isValue == 1 }"
+          (click)="celconv()"
+        >
+          &#176;C
+        </button>
+        <button
+          class="fer"
+          [ngClass]="{ active: isValue == 2 }"
+          (click)="farconv()"
+        >
+          &#176;F
+        </button>
+      </div>
+    </div>
+    <div class="forecast-dis">
+      <p>{{ this.temp["weather"][0].main }}</p>
+    </div>
+  </div>
 </div>
-
-</div>
-<div class="forecast-dis">
-    <p>{{this.temp['weather'][0].main}}</p>
-</div>
-
-</div>
- </div>
 <app-footer></app-footer>
